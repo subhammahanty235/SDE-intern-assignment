@@ -10,7 +10,7 @@ const UserSchema = mongoose.Schema({
         type:String,
         required:true
     },
-    email: {
+    emailId: {
         type: String,
         required: true,
         min: 8,

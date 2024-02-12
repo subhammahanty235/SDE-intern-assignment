@@ -1,26 +1,61 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './homepage.scss'
-
+import UploadMedia from '../../components/uploadmediaPopup/UploadMedia'
+import axios from 'axios'
 
 const HomePage = () => {
-  return (
-    <section className='homepage__screen'>
-        <nav className='homepage__screen__nav'>
-            <div className='logo'>Blink <span>Media</span></div> 
+    const [openUploadopup, setOpenUpload] = useState(false)
+    const [media, setmedia] = useState([])
+    const fetchAllMedia = async () => {
 
-            <button>Upload New</button>
+        const response = await axios.get(`http://localhost:5000/api/media/getall`,
+            {
+                headers: {
+                    "Content-Type": "application/json",
+                    "auth-token": localStorage.getItem('auth-token')
+                },
+            }
+        )
 
-            <div className="username__logout">
-                <p className="username">Subham</p>
-                <button>Logout</button>
+        if (response.data.success === true) {
+            console.log(response.data)
+            setmedia(response.data.media)
+        }
+    }
+
+    useEffect(() => {
+        fetchAllMedia();
+    }, [openUploadopup])
+
+    return (
+        <section className='homepage__screen'>
+            <nav className='homepage__screen__nav'>
+                <div className='logo'>Blink <span>Media</span></div>
+
+                <button onClick={() => { setOpenUpload(true) }}>Upload New</button>
+
+                <div className="username__logout">
+                    <p className="username">Subham</p>
+                    <button>Logout</button>
+                </div>
+
+            </nav>
+            <div className="my__media__section">
+                {
+                    media?.map((image) => {
+                        return <div className='images'>
+                            <img src={image.mediaUrl} alt="" />
+                        </div>
+                    })
+                }
             </div>
 
-        </nav>
-        <div className="my__media__section">
+            <UploadMedia openPopup={openUploadopup} setOpenPopup={setOpenUpload} fetchAllMedia={fetchAllMedia} />
+        </section>
 
-        </div>
-    </section>
-  )
+    )
 }
 
 export default HomePage
+
+
