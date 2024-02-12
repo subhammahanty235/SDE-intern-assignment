@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './login.scss';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios'
 const Login = () => {
     const navigate = useNavigate()
     const [userInfo , setUserInfo] = useState({ emailId:"" , password:""})
@@ -52,7 +53,7 @@ const Login = () => {
                 </div>
                 <div className="right__section">
                     <div className="heading__section">
-                        <p className="heading">Areh, Welcome <span>Mere Boss</span></p>
+                        <p className="heading">Hey, Welcome</p>
 
 
                     </div>
@@ -72,7 +73,7 @@ const Login = () => {
                     </div>
                     <div className="buttons__section">
                         <button onClick={loginFunction}>Login</button>
-                        <p>Create a new account</p>
+                        <p onClick={()=>{navigate('/signup')}}>Create a new account</p>
 
                     </div>
                 </div>

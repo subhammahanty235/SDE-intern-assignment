@@ -2,8 +2,10 @@ import React, { useEffect, useState } from 'react'
 import './homepage.scss'
 import UploadMedia from '../../components/uploadmediaPopup/UploadMedia'
 import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
 
 const HomePage = () => {
+    const navigate = useNavigate();
     const [openUploadopup, setOpenUpload] = useState(false)
     const [media, setmedia] = useState([])
     const fetchAllMedia = async () => {
@@ -27,6 +29,13 @@ const HomePage = () => {
         fetchAllMedia();
     }, [openUploadopup])
 
+    const logout = () =>{
+        localStorage.removeItem('auth-token')
+        navigate('/signup')
+    }
+
+    
+
     return (
         <section className='homepage__screen'>
             <nav className='homepage__screen__nav'>
@@ -36,7 +45,7 @@ const HomePage = () => {
 
                 <div className="username__logout">
                     <p className="username">Subham</p>
-                    <button>Logout</button>
+                    <button onClick={logout}>Logout</button>
                 </div>
 
             </nav>

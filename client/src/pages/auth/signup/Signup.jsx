@@ -78,7 +78,7 @@ const Signup = () => {
                     </div>
                     <div className="buttons__section">
                         <button onClick={()=>{signUpFunction()}}>Sign Up</button>
-                        <p>Already have an account?</p>
+                        <p onClick={()=>{navigate('/login')}}>Already have an account?</p>
 
                     </div>
                 </div>
