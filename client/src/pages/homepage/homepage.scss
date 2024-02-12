@@ -1,0 +1,38 @@
+.homepage__screen{
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+
+    .homepage__screen__nav{
+        height: 56px;
+        background-color: #F8CB46;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 20px;
+        // width: 100vw;
+        .logo{
+            margin: 0;
+            font-size: larger;
+            font-weight: 700;
+            color: black;
+
+            span{
+                color: #318616;
+            }
+        }
+
+        .username__logout{
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            p{
+                color: black;
+                font-weight: 600;
+            }
+            button{
+                padding: 5px 10px;
+            }
+        }
+    }
+}
