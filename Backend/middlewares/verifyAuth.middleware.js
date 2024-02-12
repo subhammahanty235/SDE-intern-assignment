@@ -1,6 +1,6 @@
 const jwt = require("jsonwebtoken");
 
-const fetchUser = (req ,res ,next)=>{
+const verifyToken = (req ,res ,next)=>{
 
     const token = req.header('auth-token');
     if (!token){
@@ -17,4 +17,4 @@ const fetchUser = (req ,res ,next)=>{
 }
 
 
-module.exports = fetchUser;
+module.exports = verifyToken;
