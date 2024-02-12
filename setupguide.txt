@@ -1,0 +1,21 @@
+Tech Stack: Backend: Node.js,Express.js, MongoDB
+            Frontend: React.js, Vite, sass, MUI
+
+SetUp Process Backend:  1. cd Backend 
+                        2. npm install
+                        3. nodemon index.js 
+
+
+SetUp Process Frontend: 1. cd client
+                        2. npm install
+                        3. npm run dev
+
+Backend Port: 5000
+Client port: 5173
+
+github repo: https://github.com/subhammahanty235/SDE-intern-assignment
+
+Thank You ....
+
+
+
